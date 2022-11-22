@@ -1,4 +1,5 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/pages/choose_seat_page.dart';
 import 'package:airplane/widgets/custom_button.dart';
 import 'package:airplane/widgets/interest_item.dart';
 import 'package:airplane/widgets/photo_item.dart';
@@ -222,7 +223,7 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
-            //NOTE : Price & Book Button
+            //NOTE : Price
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(
@@ -230,23 +231,37 @@ class DetailPage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '2.500.000',
-                        style: blackStyleText.copyWith(
-                          fontSize: 18,
-                          fontWeight: medium,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '2.500.000',
+                          style: blackStyleText.copyWith(
+                            fontSize: 18,
+                            fontWeight: medium,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'per orang',
-                        style: greyStyleText.copyWith(
-                          fontWeight: light,
+                        Text(
+                          'per orang',
+                          style: greyStyleText.copyWith(
+                            fontWeight: light,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                  ),
+                  CustomButton(
+                    title: 'Book Now',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseSeatPage(),
+                        ),
+                      );
+                    },
+                    width: 170,
                   ),
                 ],
               ),

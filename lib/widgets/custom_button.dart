@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          'Get Started',
+          title,
           style: whiteStyleText.copyWith(
             fontSize: 18,
             fontWeight: medium,
