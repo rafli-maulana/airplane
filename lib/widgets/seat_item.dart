@@ -26,6 +26,39 @@ class SeatItem extends StatelessWidget {
       }
     }
 
+    borderColor() {
+      switch (status) {
+        case 0:
+          return kPrimaryColor;
+        case 1:
+          return kPrimaryColor;
+        case 2:
+          return kUnavailableColor;
+        default:
+          return kUnavailableColor;
+      }
+    }
+
+    child() {
+      switch (status) {
+        case 0:
+          return SizedBox();
+        case 1:
+          return Center(
+            child: Text(
+              'YOU',
+              style: whiteStyleText.copyWith(
+                fontWeight: semiBold,
+              ),
+            ),
+          );
+        case 2:
+          return SizedBox();
+        default:
+          return SizedBox();
+      }
+    }
+
     return Container(
       width: 48,
       height: 48,
@@ -34,7 +67,12 @@ class SeatItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           15,
         ),
+        border: Border.all(
+          color: borderColor(),
+          width: 2,
+        ),
       ),
+      child: child(),
     );
   }
 }
